@@ -16,19 +16,23 @@ class getDataStudent{
         $this->name = $newName;
         $this->lastname = $newLastname;
         $this->age = $newAge;
-        
-
     }
+     public function printDataStudent()
+     {
+        echo "Welcome ". $this->name." ".$this->lastname. " with ". $this->age. " years old";
+     }
+
+
     public function AddCourseStudent($newCourse, $newDegree)
     {
 
     }    
 }
 
-// Instanciar una clasE 
+// Instanciar de una clase u Objeto de una clase
 $objDataStudent = new getDataStudent();
 $objDataStudent-> getPrimaryDataStudent("John","Carlos","22");
-
+$objDataStudent-> printDataStudent();
 
 ?>
 
