@@ -1,7 +1,47 @@
 <?php
  
 
+  class aspirante
+  {
 
+    // Definimos las propiedades de la clase
+    public $name;
+    public $email;
+    private $role;
+
+    // Definimos los metodos o acciones de la clase
+    public function getDataAspirante( $addNombre, $addEmail)
+    {
+      $this->name = $addNombre;
+      $this->email = $addEmail;
+
+      echo "Welcome candidate ".$this->name." with email ". $this->email;
+    }
+
+    public function addRole(){
+
+    }
+  }
+
+  if ($_POST) {
+    
+    $nameCandidate = $_POST['txtName'];
+    $emailCandidate = $_POST['txtEmail'];
+    $roleCandidate = $_POST['txtCargo'];
+
+    if ($nameCandidate == "" && $emailCandidate =="" ) {
+
+      echo "Datos no ingresados";
+    }else{
+
+      $Aspirante = new aspirante;
+      $Aspirante->getDataAspirante($nameCandidate,$emailCandidate);
+    }
+  
+  
+  }
+
+  
 
 
 
@@ -28,7 +68,17 @@
     <br/>
     <input type="cargo" name="txtCargo" placeholder="Password" style="margin-top:5px">
     <br/>
-    <input type="submit" value="Enviar" style="margin-top:5px" >
+    <input type="submit" value="Enviar" style="  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;" >
     
   </form>
 
