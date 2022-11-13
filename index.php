@@ -17,7 +17,7 @@ class createAccountUser{ // CLASE CREATE_ACCOUNT_USER
         $this->email = $newEmail;
     }
 
-     public function printDataUser()
+      public function printDataUser()
      {
         echo "Welcome ". $this->name." ".$this->lastname. " with email ". $this->email;
      }
