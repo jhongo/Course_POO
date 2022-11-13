@@ -17,11 +17,29 @@
 
       echo "Welcome candidate ".$this->name." with email ". $this->email;
     }
-
-    public function addRole(){
-
+    
+    public function addRole($roleAsp)
+    {
+      $this->role=$roleAsp;
+      echo "<br/>".$this->name." assing ". $this->role;
     }
+
+    
   }
+
+  class identificador extends aspirante{
+
+    public $identificador;
+
+    public function addIndetificador()
+    {
+      $this->identificador="123123";
+      echo "<br/>"."El ".$this->name. " tiene como identificador la serie ".$this->identificador;
+    }
+
+  }
+
+
 
   if ($_POST) {
     
@@ -36,6 +54,10 @@
 
       $Aspirante = new aspirante;
       $Aspirante->getDataAspirante($nameCandidate,$emailCandidate);
+      $Aspirante->addRole($roleCandidate);
+
+      $IdAssing = new identificador;
+      $IdAssing->addIndetificador();
     }
   
   
@@ -66,7 +88,7 @@
     <br/>
     <input type="text" name="txtEmail" placeholder="Email" style="margin-top:5px">
     <br/>
-    <input type="cargo" name="txtCargo" placeholder="Password" style="margin-top:5px">
+    <input type="cargo" name="txtCargo" placeholder="Rol" style="margin-top:5px">
     <br/>
     <input type="submit" value="Enviar" style="  background-color: #4CAF50; /* Green */
   border: none;
