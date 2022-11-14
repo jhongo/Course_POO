@@ -10,7 +10,7 @@
     private $role;
 
     // Definimos los metodos o acciones de la clase
-    public function getDataAspirante( $addNombre, $addEmail)
+    public function getDataAspirante( &$addNombre, $addEmail)
     {
       $this->name = $addNombre;
       $this->email = $addEmail;
@@ -21,7 +21,7 @@
     public function addRole($roleAsp)
     {
       $this->role=$roleAsp;
-      echo "<br/>".$this->name." assing ". $this->role;
+      echo "<br/>"."Hello ".$this->name." assing ". $this->role;
     }
 
     
@@ -31,10 +31,10 @@
 
     public $identificador;
 
-    public function addIndetificador()
+    public function printIdCandidate()
     {
       $this->identificador="123123";
-      echo "<br/>"."El ".$this->name. " tiene como identificador la serie ".$this->identificador;
+      echo "<br/>".$this->name." tiene como identificador la serie ".$this->identificador;
     }
 
   }
@@ -47,17 +47,16 @@
     $emailCandidate = $_POST['txtEmail'];
     $roleCandidate = $_POST['txtCargo'];
 
-    if ($nameCandidate == "" && $emailCandidate =="" ) {
+    if ($nameCandidate == "" && $emailCandidate =="" && $roleCandidate=="" ) {
 
       echo "Datos no ingresados";
     }else{
 
-      $Aspirante = new aspirante;
-      $Aspirante->getDataAspirante($nameCandidate,$emailCandidate);
-      $Aspirante->addRole($roleCandidate);
-
-      $IdAssing = new identificador;
-      $IdAssing->addIndetificador();
+      $DataCandidate = new identificador();
+      $DataCandidate->getDataAspirante($nameCandidate,$emailCandidate);
+      $DataCandidate->addRole($roleCandidate);
+      $DataCandidate->identificador="123456";
+      $DataCandidate->printIdCandidate();
     }
   
   
