@@ -1,73 +1,44 @@
 <?php
- 
 
-  class aspirante
-  {
+  $server="localhost";
+  $database="alumnos";
+  $user="root";
+  $password="Cxu2013";
 
-    // Definimos las propiedades de la clase
-    public $name;
-    public $email;
-    private $role;
+  // TRY-CATCH que nos permite retener errores
 
-    // Definimos los metodos o acciones de la clase
-    public function getDataAspirante( &$addNombre, $addEmail)
-    {
-      $this->name = $addNombre;
-      $this->email = $addEmail;
-
-      echo "Welcome candidate ".$this->name." with email ". $this->email;
-    }
+  try {
+    // Conexion a la base de datos
+    $connection=new PDO("mysql:host=$server;dbname=alumnos",$user,$password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    public function addRole($roleAsp)
-    {
-      $this->role=$roleAsp;
-      echo "<br/>"."Hello ".$this->name." assing ". $this->role;
-    }
-
+    // Sentencia a ejecutar
     
-  }
-
-  class identificador extends aspirante{
-
-    public $identificador;
-
-    public function printIdCandidate()
-    {
-      $this->identificador="123123";
-      echo "<br/>".$this->name." tiene como identificador la serie ".$this->identificador;
-    }
-
-  }
-
-
-
-  if ($_POST) {
-    
-    $nameCandidate = $_POST['txtName'];
-    $emailCandidate = $_POST['txtEmail'];
-    $roleCandidate = $_POST['txtCargo'];
-
-    if ($nameCandidate == "" && $emailCandidate =="" && $roleCandidate=="" ) {
-
-      echo "Datos no ingresados";
-    }else{
-
-      $DataCandidate = new identificador();
-      $DataCandidate->getDataAspirante($nameCandidate,$emailCandidate);
-      $DataCandidate->addRole($roleCandidate);
-      $DataCandidate->identificador="123456";
-      $DataCandidate->printIdCandidate();
-    }
+    if ($_POST) {
+   
+      $namePost = $_POST['txtName'];
+      $emailPost = $_POST['txtEmail'];
+      $coursePost = $_POST['txtCourse'];
   
+      $sql="INSERT INTO perfiles(id,nombre,email,course) VALUES(NULL,'$namePost','$emailPost','$coursePost')";
+      $connection->exec($sql);
+      echo "Alumno registrado";
+    }
+
+
+
+    echo "Successful Connection";
+
+
+
+  } catch (PDOException $error) {
+  
+    echo "Error ".$error;
   
   }
-
-  
-
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,37 +46,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Herencias</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>CONEXION SQL</title>
 </head>
 <body>
 
-<div class="container-main" style="background:#219ebc; width: 300px; height: 200px; display: flex;  " >
+  <div class="w-1/3 h-1/3 bg-[#a8dadc] rounded-2xl ">
 
-<form action="index.php" method="post" style="margin:20px ;">
+    <form action="index.php" method="post">
+
+      <label for="">Nombre</label>
+      <br/>
+      <input type="text" name="txtName">
+      <br/>
+      <label for="">Email</label>
+      <br/>
+      <input type="text" name="txtEmail">
+      <br/>
+      <label for="">Course</label>
+      <br/>
+      <input type="text" name="txtCourse">
+      
+      <br/>
+      <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        Enviar 
+      </button>
     
-    <input type="text" name="txtName" placeholder="Nombre" style="margin-top:5px" >
-    <br/>
-    <input type="text" name="txtEmail" placeholder="Email" style="margin-top:5px">
-    <br/>
-    <input type="cargo" name="txtCargo" placeholder="Rol" style="margin-top:5px">
-    <br/>
-    <input type="submit" value="Enviar" style="  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;" >
-    
-  </form>
+    </form>
 
-</div>
+  </div>
 
 
 
+
+  
 </body>
 </html>
