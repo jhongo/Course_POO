@@ -3,10 +3,20 @@
 
 $txtNombre = "";
 $rdgLenguaje = "";
+
+$chkFlutter = "";
+$chkReact_Native = "";
+$chkXmarin = "";
 if ($_POST) {
 
     $txtNombre = (isset($_POST['txtNombre'])) ? $_POST['txtNombre'] : "";
     $rdgLenguaje = (isset($_POST['txtNombre'])) ? $_POST['lenguaje'] : "";
+
+    $chkFlutter = ( isset($_POST['chkflutter']) == "si" ) ? "checked" : "";
+    $chkReact_Native = (isset($_POST['chkreact_native']) == "si" ) ? "checked" : "";       
+    $chkXmarin = ( isset($_POST['chkxamarin']) == "si" ) ? "checked" : "";
+
+
 }
 
 
@@ -65,22 +75,24 @@ if ($_POST) {
 
             </div>
 
-            <div class="flex justify-center">
+            <br/>
+
+            <div class=" ml-12 flex justify-center">
                 <div>
                     <div class="form-check">
-                        <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
+                        <input <?php echo $chkFlutter?> class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" name="chkflutter" value="si" id="flexCheckDefault">
                         <label class="form-check-label inline-block text-gray-800" for="flexCheckDefault">
                             Flutter
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <input <?php echo $chkReact_Native ?> class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" name="chkreact_native" value="si" id="flexCheckChecked" >
                         <label class="form-check-label inline-block text-gray-800" for="flexCheckChecked">
                             React Native
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <input <?php echo $chkXmarin ?> class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" name="chkxamarin" value="si" id="flexCheckChecked" >
                         <label class="form-check-label inline-block text-gray-800" for="flexCheckChecked">
                             Xamarin
                         </label>
