@@ -38,9 +38,6 @@ if ($_POST) {
         <input value="<?php echo $txtNombre ?>" type="text" name="txtNombre" placeholder="Ingresar dato" id=""> <br />
         <label for="">Lenguaje de preferencia</label>
 
-        <!-- <br /> PHP: <input type="radio" <?php echo ($rdgLenguaje == "php" ? "checked" : "") ?> name="lenguaje" value="php" id=""> <br />
-        <br /> HTML: <input type="radio" <?php echo ($rdgLenguaje == "html" ? "checked" : "") ?> name="lenguaje" value="html" id=""><br />
-        <br /> DART: <input type="radio" <?php echo ($rdgLenguaje == "dart" ? "checked" : "") ?> name="lenguaje" value="dart" id=""><br /> -->
 
         <div class="flex my-4 mx-1.5">
             <div>
@@ -60,12 +57,35 @@ if ($_POST) {
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"<?php echo ($rdgLenguaje == "Java" ? "checked" : "") ?> value="Java" type="radio" name="lenguaje" id="">
+                    <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" <?php echo ($rdgLenguaje == "Java" ? "checked" : "") ?> value="Java" type="radio" name="lenguaje" id="">
                     <label class="form-check-label inline-block text-gray-800" for="lenguaje2">
                         Java
                     </label>
                 </div>
 
+            </div>
+
+            <div class="flex justify-center">
+                <div>
+                    <div class="form-check">
+                        <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label inline-block text-gray-800" for="flexCheckDefault">
+                            Flutter
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label inline-block text-gray-800" for="flexCheckChecked">
+                            React Native
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label inline-block text-gray-800" for="flexCheckChecked">
+                            Xamarin
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
 
