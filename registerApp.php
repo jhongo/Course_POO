@@ -1,3 +1,28 @@
+<?php
+
+//? CREDENTIALS DATA CONNECTION
+$server = 'localhost';
+$database = 'jobs';
+$user = 'root';
+$password = 'Cxu2013';
+
+//* EXCEPTIONS 
+try {
+    $connection = new PDO("mysql:host=$server;dbname=$database", $user, $password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // echo ("Successful Connection");
+} catch (PDOException $error) {
+    echo "Erro" . $error;
+}
+ 
+ 
+ 
+ 
+ ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +36,10 @@
 
 <body>
 
+
+    
     <div class="flex justify-center items-center content-center bg-[#a8dadc] w-full h-screen">
+
 
         <form class="w-full max-w-lg bg-[#f1faee] p-12 rounded-2xl">
             <div class="flex flex-wrap -mx-3 mb-6">
