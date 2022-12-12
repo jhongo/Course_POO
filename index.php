@@ -25,6 +25,7 @@ if ($_POST) {
     $selectAnime = (isset($_POST['selectAnime'])) ? $_POST['selectAnime'] : "";
 
     $txtAreaComment = (isset($_POST['txtAreaComment'])) ? $_POST['txtAreaComment'] : "Sin Comentarios";
+
 }
 
 
