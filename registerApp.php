@@ -24,8 +24,7 @@ try {
     $connection = new PDO("mysql:host=$server;dbname=$database", $user, $password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // * INSERT DATA IN THE DB
-
+    // * GET DATA OF THE FORM 
     if ($_POST) {
 
         $name_post_txt = (isset($_POST['name_post_txt'])) ? $_POST['name_post_txt'] : "s/n";
@@ -37,12 +36,22 @@ try {
         $floor_three_post_chk = (isset($_POST['chk_floor_three']) == "floor") ? "checked" : "" ;;
         $state_post_cmb = (isset($_POST['state_post_cmb'])) ? $_POST['state_post_cmb'] : "" ;
 
-        echo "Hello ".$name_post_txt . "<br/>";
-        echo "Hello " .$lastname_post_txt."<br/>";
-        echo "Cargo " . $position_post_cmb . "<br/>";
-        echo "Edificio " . $building_post_rdg;
-        echo "Num Piso " . $floor_one_post_chk == "checked" ? "Floor One" : "";
-        # code...
+        //? CONVERT
+        $floor_one = ($floor_one_post_chk == "checked" ? "Piso Uno" : "");
+        $floor_two = ($floor_two_post_chk == "checked" ? "Piso Dos" : "");
+        $floor_three = ($floor_three_post_chk == "checked" ? "Piso Tres" : "");
+    
+    //* INSERT DATA IN DB 
+    $sql = "INSERT INTO employees(employee_id,first_name,last_name, position, assigned_building,num_floor,state) VALUES(NULL,'$name_post_txt', '$lastname_post_txt','$position_post_cmb', '$building_post_rdg','$floor_one, $floor_two, $floor_three', '$state_post_cmb')";
+    $connection->exec($sql);
+    echo "Successful register";
+    
+    
+        
+
+
+
+
     }
 } catch (PDOException $error) {
     echo "Erro" . $error;
@@ -63,7 +72,7 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Assing</title>
+    <title>REM</title>
 </head>
 
 <body>
