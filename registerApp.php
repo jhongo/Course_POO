@@ -24,7 +24,7 @@ try {
     $connection = new PDO("mysql:host=$server;dbname=$database", $user, $password);
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // * GET DATA OF THE FORM 
+    //* GET DATA OF THE FORM 
     if ($_POST) {
 
         $name_post_txt = (isset($_POST['name_post_txt'])) ? $_POST['name_post_txt'] : "s/n";
@@ -46,13 +46,8 @@ try {
     $connection->exec($sql);
     echo "Successful register";
     
-    
-        
-
-
-
-
     }
+    
 } catch (PDOException $error) {
     echo "Erro" . $error;
 }
