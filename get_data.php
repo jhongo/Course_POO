@@ -51,6 +51,9 @@ try {
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="py-3 px-6">
+                            ID 
+                        </th>
+                        <th scope="col" class="py-3 px-6">
                             Nombre 
                         </th>
                         <th scope="col" class="py-3 px-6">
@@ -66,24 +69,39 @@ try {
                 </thead>
                 <tbody>
 
+                <?php foreach( $res as $emple) {?>
+                <tr class="bg-white dark:bg-gray-800">
+                    <th  scope="row" class="py-4 px-6 font-medium dark:text-white">
+                        <?php
+                        echo ($emple['employee_id']);
+                        ?>
+                    </th>
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <?php
+                        echo ($emple['first_name']);
+                        ?>    
+                    </th>
+                    <td class="py-4 px-6">
+                        <?php
+                        echo ($emple['last_name']);
+                        ?>
+                    </td>
+                    <td class="py-4 px-6">
+                    <?php
+                        echo($emple['position'])
+                    ?>
 
-                    <tr class="bg-white dark:bg-gray-800">
-                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
-                        </th>
-                        <td class="py-4 px-6">
-                            Black
-                        </td>
-                        <td class="py-4 px-6">
-                            Accessories
-                        </td>
-                        <td class="py-4 px-6">
-                            $99
-                        </td>
-                    </tr>
-
-                    
-                </tbody>
+                    </td>
+                    <td class="py-4 px-6">
+                        <?php
+                        echo($emple['state'])
+                        ?>    
+                    </td>
+                </tr>
+                
+                <?php } ?>
+                
+            </tbody>
             </table>
     </div>
 
